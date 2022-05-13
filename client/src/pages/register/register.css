@@ -1,0 +1,116 @@
+.login {
+  width: 100vw;
+  height: 100vh;
+  background-color: #181818;
+  display: flex;
+  flex-direction: column;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  vertical-align: middle;
+}
+
+.loginWrapper {
+  width: 70%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginLeft{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.loginRight {
+  flex: 1;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginLogo {
+  font-size: 50px;
+  font-weight: 800;
+  color: #E50914;
+  margin-bottom: 10px;
+}
+
+.loginDesc {
+  font-size: 24px;
+}
+
+.loginBox{
+    height: 400px;
+    padding: 20px;
+    background-color: #212121;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.loginInput{
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 18px;
+    padding-left: 20px;
+}
+
+.loginInput:focus{
+    outline: none;
+}
+
+.loginButton{
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #E50914;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.loginForgot{
+    text-align: center;
+    color: #E50914;
+}
+
+.loginRegisterButton{
+    width: 100%;
+    align-self: right;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #e9e9e95b;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.photoUpload{
+    display: flex;
+}
+
+.uploadQuery{
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: 20px;
+    align-items: center;
+    color: lightgray;
+}
+
+.uploadIcon{
+    cursor: pointer;
+}
+
+.by{
+    color: lightgrey;
+}
