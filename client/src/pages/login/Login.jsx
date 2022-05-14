@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 export default function Login() {
   const email = useRef();
   const password = useRef();
-  const { isFetching, dispatch } = useContext(AuthContext);
-
+  const { isFetching, error, dispatch } = useContext(AuthContext);
+  
   const handleClick = (e) => {
     e.preventDefault();
     loginCall(
@@ -24,7 +24,7 @@ export default function Login() {
         <div className="loginLeft">
           <h3 className="loginLogo">MyWorld</h3>
           <span className="loginDesc">
-            Connect with friends and the world around you on MyWorld.
+          The Internet was meant to make the world a smaller place. But it actually feels smaller without it.
           </span>
         </div>
         <div className="loginRight">
@@ -51,7 +51,7 @@ export default function Login() {
                 "Log In"
               )}
             </button>
-            <span className="loginForgot">Forgot Password?</span>
+            {error && <span className="error">Wrong credentials!</span>}
             <Link to= "/register">
             <button className="loginRegisterButton">
               Create a New Account
@@ -62,6 +62,9 @@ export default function Login() {
       </div>
       <div className="by">
             Developed by: Surya Polisetty
+      </div>
+      <div className="by">
+        Contact: suryampolisetty@gmail.com
       </div>
     </div>
   );

@@ -2,113 +2,130 @@
   width: 100vw;
   height: 100vh;
   background-color: #181818;
+  /* background-image: linear-gradient(to right, white,red, yellow); */
   display: flex;
-  flex-direction: column;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-  vertical-align: middle;
 }
 
 .loginWrapper {
-  width: 70%;
-  height: 70%;
+  width: 90%;
+  height: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .loginLeft{
-    flex: 1;
+    flex: 2;
     display: flex;
-    flex-direction: column;
     justify-content: center;
 }
 
 .loginRight {
   flex: 1;
-  padding-left: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .loginLogo {
-  font-size: 50px;
+  font-size: 70px;
   font-weight: 800;
-  color: #E50914;
+  color: MediumSlateBlue;
   margin-bottom: 10px;
 }
 
 .loginDesc {
-  font-size: 24px;
+  font-size: 25px;
+  color: white
 }
 
 .loginBox{
-    height: 400px;
-    padding: 20px;
+    height: auto;
+    /* padding: 20px; */
     background-color: #212121;
-    border-radius: 10px;
+    border-radius: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content:space-around;
 }
 
 .loginInput{
-    height: 50px;
-    border-radius: 10px;
-    border: 1px solid gray;
+    height: 40px;
+    border-radius: 30px;
+    border: 2px solid gray;
     font-size: 18px;
-    padding-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* padding-top: 20px; */
+
 }
 
 .loginInput:focus{
     outline: none;
 }
 
+.photoUpload{
+    display: flex;
+    /* justify-content: space-around; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.uploadQuery{
+    font-size: 18px;
+    margin-left: 10px;
+    margin-right: 20px;
+    align-items: center;
+    color: white;
+}
+
+.uploadIcon{
+    cursor: pointer;
+}
+
+input[type=file]::file-selector-button {
+    border: 1px solid #212121;
+    padding: .2em .4em;
+    border-radius: 100px;
+    background-color: lightgrey;
+    transition: 0.1s;
+}
+input[type=file]::file-selector-button:hover {
+    background-color: white;
+    border: 1px solid #e9e9e95b;
+}
+
 .loginButton{
     height: 50px;
-    border-radius: 10px;
+    border-radius: 30px;
     border: none;
-    background-color: #E50914;
+    background-color: limegreen;
     color: white;
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: 0.2s;
 }
-
-.loginForgot{
-    text-align: center;
-    color: #E50914;
+.loginButton:hover{
+    background-color: limegreen;
+    border: 1px solid white;
 }
 
 .loginRegisterButton{
     width: 100%;
-    align-self: right;
-    height: 50px;
-    border-radius: 10px;
+    height: 40px;
+    border-radius: 50px;
     border: none;
     background-color: #e9e9e95b;
     color: white;
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
-}
-
-.photoUpload{
-    display: flex;
-}
-
-.uploadQuery{
-    font-size: 16px;
-    margin-left: 10px;
-    margin-right: 20px;
-    align-items: center;
-    color: lightgray;
-}
-
-.uploadIcon{
-    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-self: auto;
 }
 
 .by{

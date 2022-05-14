@@ -2,8 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
-const multer = require("multer");
-// const helmet = require("helmet");
 const app = express();
 const router = express.Router();
 const userRoute = require("./routes/users");
@@ -25,25 +23,6 @@ app.use("/images", express.static(path.join(__dirname, "public/images")));
 //middleware
 app.use(express.json());
 app.use(morgan("common"));
-                                                                                    // app.use(helmet());
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "public/images");
-  },
-  filename: (req, file, cb) => {
-    cb(null, req.body.name);
-  },
-});
-
-const upload = multer({ storage: storage });
-app.post("/api/upload", upload.single("file"), (req, res) => {
-  try {
-    return res.status(200).json("File uploded successfully");
-  } catch (error) {
-    console.error(error);
-  }
-});
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);

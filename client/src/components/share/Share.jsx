@@ -1,13 +1,13 @@
 import "./share.css";
-import {PermMedia,Label,Room,EmojiEmotions,Cancel,} from "@material-ui/icons";
+import {PermMedia,Cancel} from "@material-ui/icons";
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import {getStorage, ref, uploadBytes, getDownloadURL} from "firebase/storage";
 
 export default function Share() {
   const { user } = useContext(AuthContext);
-  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const desc = useRef();
   const [file, setFile] = useState(null);
 
@@ -18,20 +18,17 @@ export default function Share() {
       desc: desc.current.value,
     };
     if (file) {
-      const data = new FormData();
-      const fileName = Date.now() + file.name;
-      data.append("name", fileName);
-      data.append("file", file);
-      newPost.img = fileName;
-      console.log(newPost);
-      try {
-        await axios.post("/upload", data);
-      } catch (err) {}
+        const storage = getStorage();
+        const fileRef = ref(storage, "images/PostsImages/"+Date.now() +"::"+ file.name);
+        await uploadBytes(fileRef, file).then((snapshot) => {});
+        await getDownloadURL(fileRef).then((url)=>{
+            newPost.img=url;
+        });
     }
     try {
       await axios.post("/posts", newPost);
       window.location.reload();
-    } catch (err) {}
+    } catch (err) {console.log(err);}
   };
 
   return (
@@ -43,8 +40,8 @@ export default function Share() {
             className="shareProfileImg"
             src={
               user.profilePicture
-                ? PF + user.profilePicture
-                : PF + "noAvatar.png"
+                ? user.profilePicture
+                : process.env.REACT_APP_NoAVATAR_URL
             }
             alt=""
           />
@@ -65,7 +62,7 @@ export default function Share() {
         <form className="shareBottom" onSubmit={submitHandler}>
           <div className="shareOptions">
             <label htmlFor="file" className="shareOption">
-              <PermMedia htmlColor="CornFlowerBlue" className="shareIcon" />
+              <PermMedia htmlColor="white" className="shareIcon" />
               <span className="shareOptionText">Photo</span>
               <input
                 style={{ display: "none" }}
@@ -75,18 +72,6 @@ export default function Share() {
                 onChange={(e) => setFile(e.target.files[0])}
               />
             </label>
-            <div className="shareOption">
-              <Label htmlColor="grey" className="dummyShareIcon" />
-              <span className="dummyShareOptionText">Tag</span>
-            </div>
-            <div className="shareOption">
-              <Room htmlColor="grey" className="shareIcon" />
-              <span className="dummyShareOptionText">Location</span>
-            </div>
-            <div className="shareOption">
-              <EmojiEmotions htmlColor="grey" className="shareIcon" />
-              <span className="dummyShareOptionText">Feelings</span>
-            </div>
           </div>
           <button className="shareButton" type="submit">
             Share

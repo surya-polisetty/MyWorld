@@ -2,7 +2,8 @@
   height: 50px;
   width: 100%;
   /* background-color: #1877f2; */
-  background-color: #E50914;
+  background-color: #212121;
+  /* background-image: linear-gradient(to right, MediumSlateBlue , #181818, MediumSlateBlue); */
   display: flex;
   align-items: center;
   position: sticky;
@@ -18,7 +19,7 @@
   font-size: 24px;
   margin-left: 20px;
   font-weight: bold;
-  color: white;
+  color: mediumslateblue;
   cursor: pointer;
 }
 
@@ -29,7 +30,7 @@
 .searchbar {
   width: 100%;
   height: 30px;
-  background-color: #181818;
+  background-color: white;
   border-radius: 30px;
   display: flex;
   align-items: center;
@@ -41,9 +42,9 @@
 }
 
 .searchInput {
-    background-color: #181818;
-    caret-color: white;
-    color: white;
+    background-color: white;
+    caret-color: #181818;
+    color: #181818;
   border: none;
   width: 70%;
 }
@@ -100,7 +101,8 @@
 
 .logout {
   color: white;
-  background-color: #E50914;
+  background:none;
+  /* background-color: MediumSlateBlue; */
   border:none;
   cursor: pointer;
   font-size: 15px;

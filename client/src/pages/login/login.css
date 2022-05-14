@@ -32,7 +32,7 @@
 .loginLogo {
   font-size: 50px;
   font-weight: 800;
-  color: #E50914;
+  color: MediumSlateBlue;
   margin-bottom: 10px;
 }
 
@@ -66,7 +66,7 @@
     height: 50px;
     border-radius: 10px;
     border: none;
-    background-color: #E50914;
+    background-color: MediumSlateBlue;
     color: white;
     font-size: 20px;
     font-weight: 500;
@@ -102,4 +102,9 @@
 .by{
     color: lightgrey;
     
+}
+
+.error{
+    color: red;
+    padding-left: 10px;
 }

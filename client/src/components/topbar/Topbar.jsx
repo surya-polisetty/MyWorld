@@ -1,5 +1,5 @@
 import "./topbar.css";
-import { Search, Person, Chat, Notifications } from "@material-ui/icons";
+import { Search, Person } from "@material-ui/icons";
 import HomeIcon from '@material-ui/icons/Home';
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -8,7 +8,6 @@ import { useHistory } from "react-router";
 
 export default function Topbar() {
     const { user } = useContext(AuthContext);
-      const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     
     const history = useHistory();
     const handleLogout = () => {
@@ -28,7 +27,7 @@ export default function Topbar() {
         <div className="searchbar">
           <Search className="searchIcon" />
           <input
-            placeholder="Search for friend, post or video"
+            placeholder="Search for... whatever!"
             className="searchInput"
           />
         </div>
@@ -46,22 +45,14 @@ export default function Topbar() {
             {/* <span className="topbarIconBadge">1</span> */}
           </div>
           </Link>
-          <div className="topbarIconItem">
-            <Chat />
-            <span className="topbarIconBadge">2</span>
-          </div>
-          <div className="topbarIconItem">
-            <Notifications />
-            <span className="topbarIconBadge">1</span>
-          </div>
         </div>
         <div className="topbarRightLinks">
             <Link to={`/profile/${user.username}`}>
             <img
                 src={
                     user.profilePicture
-                    ? PF + user.profilePicture
-                    : PF + "noAvatar.png"
+                    ? user.profilePicture
+                    : process.env.REACT_APP_NoAVATAR_URL
                 }
                 alt=""
                 className="topbarImg"
