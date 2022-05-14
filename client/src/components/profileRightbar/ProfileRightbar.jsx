@@ -5,14 +5,11 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
 export default function Rightbar({ user }) {
-    console.log("called 1 "+user._id);
     const [friends, setFriends] = useState([]);
     const { user: currentUser, dispatch } = useContext(AuthContext);
     const [followed, setFollowed] = useState();
 
     useEffect(() => {
-        console.log("called in "+user._id);
-
         setFollowed(currentUser.followings.includes(user._id));
 
         const getFriends = async () => {
@@ -43,11 +40,10 @@ export default function Rightbar({ user }) {
         } catch (err) {
         }
     };
-    console.log("called 2 "+user._id);
     return (
         <div className="rightbar">
             <div className="rightbarWrapper">
-                {user.username !== currentUser.username && console.log("called 3 "+user._id) && (
+                {user.username !== currentUser.username && (
                     <button className="rightbarFollowButton" onClick={handleFollowClick}>
                         {followed ? "Unfollow" : "Follow"}
                     </button>
